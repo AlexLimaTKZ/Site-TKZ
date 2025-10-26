@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossas Equipes - TKZ E-SPORTS</title>
+    <link rel="icon" href="images/LogoTKZ.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .teams-page {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .team-section {
+            max-width: 900px;
+            margin: 2rem auto;
+            background-color: var(--element-bg-color);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .team-section h3 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .player-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .player-card {
+            background-color: var(--bg-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .player-card .player-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--secondary-text-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .player-card h4 {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .player-card p {
+            color: var(--secondary-text-color);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html"><img src="images/LogoTKZ.png" alt="Logo TKZ" class="nav-logo"></a></div>
+            <div class="nav-buttons">
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#">Sobre <i class="arrow down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="sobre.html">Sobre Nós</a></li>
+                            <li><a href="times.html">Times</a></li>
+                            <li><a href="redes-sociais.html">Redes Sociais</a></li>
+                            <li><a href="index.html#parceiros">Parceiros</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="comunidade.html">Comunidade</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                </ul>
+                <a href="streamers.html" class="btn-streamers">Streamers</a>
+                <a href="login.html" class="btn-primary">Entrar</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="teams-content" class="teams-page">
+            <h2>Nossas Equipes</h2>
+            <p class="subtitle">Conheça os jogadores que representam a TKZ E-SPORTS</p>
+
+            <div class="team-section">
+                <h3>League of Legends</h3>
+                <div class="player-grid">
+                    <div class="player-card">
+                        <div class="player-avatar">CN</div>
+                        <h4>cNr#hanny</h4>
+                        <p>Toplaner</p>
+                    </div>
+                    <div class="player-card">
+                        <div class="player-avatar">PP</div>
+                        <h4>Pompon#Tenza</h4>
+                        <p>Jungler</p>
+                    </div>
+                    <div class="player-card">
+                        <div class="player-avatar">ZY</div>
+                        <h4>Zeyus#fun</h4>
+                        <p>Midlaner</p>
+                    </div>
+                    <div class="player-card">
+                        <div class="player-avatar">GZ</div>
+                        <h4>Gz 十#Demon</h4>
+                        <p>Adcarry</p>
+                    </div>
+                    <div class="player-card">
+                        <div class="player-avatar">VT</div>
+                        <h4>vitim perturbado#sup</h4>
+                        <p>Support</p>
+                    </div>
+                    <div class="player-card">
+                        <div class="player-avatar">XX</div>
+                        <h4>xxingliing#BR1</h4>
+                        <p>Reserva</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more team sections here as needed -->
+
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2 class="logo-text"><a href="index.html">TKZ</a></h2>
+                <p>A organização de e-sports que está revolucionando o cenário competitivo brasileiro.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Links Rápidos</h2>
+                <ul>
+                    <li><a href="https://www.challengermode.com/s/TheKingZone" target="_blank">Torneios</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h2>Jogos</h2>
+                <ul>
+                    <li><a href="https://www.leagueoflegends.com/pt-br" target="_blank">League of Legends</a></li>
+                    <li><a href="https://wildrift.leagueoflegends.com/pt-br" target="_blank">Wild Rift</a></li>
+                    <li><a href="https://teamfighttactics.leagueoflegends.com/pt-br" target="_blank">Teamfight Tactics</a></li>
+                    <li><a href="https://www.konami.com/efootball/pt-br" target="_blank">eFootball</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h2>Redes Sociais</h2>
+                <div class="social-icons">
+                    <a href="https://discord.gg/5CnzeWUJPG" target="_blank"><img src="images/Discord.png" alt="Discord"></a>
+                    <a href="https://www.instagram.com/esportstkz/?igshid=152k76svblwvg" target="_blank"><img src="images/Instagram.png" alt="Instagram"></a>
+                    <a href="https://chat.whatsapp.com/DsFyAlmyLEg0JF1dylfsvs" target="_blank"><img src="images/Whatsapp.png" alt="WhatsApp"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 TKZ E-SPORTS. Todos os direitos reservados.
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

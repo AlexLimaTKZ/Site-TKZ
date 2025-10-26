@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamers - TKZ E-SPORTS</title>
+    <link rel="icon" href="images/LogoTKZ.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .streamers-page {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .streamers-page h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .streamers-page .subtitle {
+            color: var(--secondary-text-color);
+            margin-bottom: 3rem;
+        }
+
+        .streamer-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .streamer-card {
+            background-color: var(--element-bg-color);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .streamer-card:hover {
+            border-color: var(--accent-color);
+        }
+
+        .streamer-card .streamer-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+            margin: 0 auto 1.5rem; /* Center avatar */
+        }
+
+        .streamer-card h3 {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .streamer-card .streamer-tag {
+            color: #6441a5; /* Twitch purple */
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .streamer-card p {
+            color: var(--secondary-text-color);
+            margin-bottom: 1rem;
+            flex-grow: 1; /* Allow description to take available space */
+        }
+
+        .streamer-card .streamer-stats {
+            font-size: 0.9rem;
+            color: var(--secondary-text-color);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .streamer-card .btn-primary {
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html"><img src="images/LogoTKZ.png" alt="Logo TKZ" class="nav-logo"></a></div>
+            <div class="nav-buttons">
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#">Sobre <i class="arrow down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="sobre.html">Sobre Nós</a></li>
+                            <li><a href="times.html">Times</a></li>
+                            <li><a href="redes-sociais.html">Redes Sociais</a></li>
+                            <li><a href="index.html#parceiros">Parceiros</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="comunidade.html">Comunidade</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                </ul>
+                <a href="#streamers" class="btn-streamers">Streamers</a>
+                <a href="login.html" class="btn-primary">Entrar</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="streamers-content" class="streamers-page">
+            <h2>Nossos Streamers</h2>
+            <p class="subtitle">Conheça os talentos que levam a TKZ para o mundo!</p>
+
+            <div class="streamer-card-grid">
+                <div class="streamer-card">
+                    <div class="streamer-avatar">AL</div>
+                    <h3>Alex Lima</h3>
+                    <p class="streamer-tag">LiderTKZ</p>
+                    <p>Salve! Sou Alex Lima. Fundador da TKZ E-sports — direto de Teresina pro mundo. Top 1 Rammus, otaku raiz e pensador noturno, apaixonado por filosofia, psicologia e tudo que mexe com o cérebro. Tryhard nos games e na vida, sempre buscando o próximo nível com sabedoria, intensidade.</p>
+                    <p class="streamer-stats">2.000 seguidores na Twitch</p>
+                    <a href="https://www.twitch.tv/LiderTKZ" target="_blank" class="btn-twitch">Assistir na Twitch</a>
+                </div>
+                <div class="streamer-card">
+                    <div class="streamer-avatar">MB</div>
+                    <h3>Marlon Brito</h3>
+                    <p class="streamer-tag">TKZ Caveiro</p>
+                    <p>Marlon Brito, mais conhecido como TKZ Caveiro, faz lives em sua grande maioria de eFootball, com resenha garantida, muita zoeira e diversão. Acompanhe suas lives de Domingo a Sexta toda noite no Tiktok.</p>
+                    <a href="https://www.tiktok.com/@marlonbritobjj" target="_blank" class="btn-tiktok">Assistir no Tiktok</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2 class="logo-text"><a href="index.html">TKZ</a></h2>
+                <p>A organização de e-sports que está revolucionando o cenário competitivo brasileiro.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Links Rápidos</h2>
+                <ul>
+                    <li><a href="https://www.challengermode.com/s/TheKingZone" target="_blank">Torneios</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h2>Jogos</h2>
+                <ul>
+                    <li><a href="https://www.leagueoflegends.com/pt-br" target="_blank">League of Legends</a></li>
+                    <li><a href="https://wildrift.leagueoflegends.com/pt-br" target="_blank">Wild Rift</a></li>
+                    <li><a href="https://teamfighttactics.leagueoflegends.com/pt-br" target="_blank">Teamfight Tactics</a></li>
+                    <li><a href="https://www.konami.com/efootball/pt-br" target="_blank">eFootball</a></li>
+                </ul>
+            </div>
+            <div id="redes-sociais" class="footer-section social">
+                <h2>Redes Sociais</h2>
+                <div class="social-icons">
+                    <a href="https://discord.gg/5CnzeWUJPG" target="_blank"><img src="images/Discord.png" alt="Discord"></a>
+                    <a href="https://www.instagram.com/esportstkz/?igshid=152k76svblwvg" target="_blank"><img src="images/Instagram.png" alt="Instagram"></a>
+                    <a href="https://chat.whatsapp.com/DsFyAlmyLEg0JF1dylfsvs" target="_blank"><img src="images/Whatsapp.png" alt="WhatsApp"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 TKZ E-SPORTS. Todos os direitos reservados.
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

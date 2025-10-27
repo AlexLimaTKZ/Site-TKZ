@@ -53,9 +53,11 @@ nav {
 /* .logo rule was removed */
 
 .nav-logo {
-    height: 40px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
     width: auto;
-    vertical-align: middle; /* Align with other nav items */
+    vertical-align: middle;
+    margin-top: -32px;   
+    margin-bottom: -32px; 
 }
 
 .nav-links {
@@ -267,6 +269,7 @@ nav {
  font-weight: bold;
  line-height: 1.1;
  margin-bottom: 0; /* Closest possible */
+ margin-top: -6.5rem;
  animation: fadeInZoomOut 1s ease-out forwards; /* Animation for E-sports */
 }
 
@@ -594,6 +597,7 @@ footer {
     min-height: 2.2rem; /* Garante que todos os títulos ocupem a mesma altura */
  margin-bottom: 1rem; /* Espaçamento consistente abaixo do título */
     text-align: left;
+    font-size: 1.45rem;
 }
 
 .footer-section ul {
@@ -606,6 +610,10 @@ footer {
 .footer-section.about p,
 .footer-section.social .social-icons {
     margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    align-items: center;
 }
 
 .footer-section.about .logo-text {
@@ -618,8 +626,9 @@ footer {
 }
 
 .social-icons a {
- margin-right: 1rem;
+ /*margin-right: 1rem;*/
  font-size: 1.5rem;
+ color: var(--text-color);
 }
 
 .footer-bottom {

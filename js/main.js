@@ -18,9 +18,9 @@ function onYouTubeIframeAPIReady() {
     total3dItems = carousel3dItems.length;
     angle = 360 / total3dItems;
 
-    // Ensure carousel3d is rendered before calculating offsetWidth
-    // This might require a small delay or checking if offsetWidth is non-zero
-    // For now, assume it's rendered. If not, this might still be an issue.
+    // Garante que o carousel3d seja renderizado antes de calcular o offsetWidth
+    // Isso pode exigir um pequeno atraso ou verificar se o offsetWidth não é zero
+    // Por enquanto, assuma que está renderizado. Caso contrário, isso ainda pode ser um problema.
     const itemWidth = carousel3dItems[0].offsetWidth;
     translateZ = (itemWidth / 2) / Math.tan((angle / 2) * (Math.PI / 180));
 
@@ -37,15 +37,15 @@ function onYouTubeIframeAPIReady() {
         item.style.transform = `rotateY(${index * angle}deg) translateZ(${translateZ}px)`;
     });
     rotateCarousel();
-    // Play the first video after all players are initialized and carousel is set up
-    // This ensures the first video starts playing
+    // Reproduz o primeiro vídeo depois que todos os players são inicializados e o carrossel é configurado
+    // Isso garante que o primeiro vídeo comece a ser reproduzido
     if (players.length > 0) {
         players[0].playVideo();
     }
 }
 
 function onPlayerReady(event) {
-    // Play the first video when the API is ready and set volume to 100
+    // Reproduz o primeiro vídeo quando a API estiver pronta e define o volume para 100
     if (players.indexOf(event.target) === 0) {
         event.target.playVideo();
         event.target.setVolume(100);
@@ -54,12 +54,12 @@ function onPlayerReady(event) {
 
 function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.ENDED) {
-        // Video ended, move to the next one
+        // Vídeo terminou, avança para o próximo
         currentVideoIndex = (currentVideoIndex + 1) % total3dItems;
-        current3dAngle -= angle; // Rotate carousel
+        current3dAngle -= angle; // Rotaciona o carrossel
         rotateCarousel();
-        // Do not autoplay the next video
-        // players[currentVideoIndex].playVideo(); // Removed autoplay for subsequent videos
+        // Não reproduzir automaticamente o próximo vídeo
+        // players[currentVideoIndex].playVideo(); // Autoplay removido para vídeos subsequentes
     }
 }
 
@@ -67,7 +67,7 @@ function rotateCarousel() {
     if (carousel3d) {
         carousel3d.style.transform = `translateZ(-${translateZ}px) rotateY(${current3dAngle}deg)`;
     }
-    // Pause all other videos
+    // Pausa todos os outros vídeos
     players.forEach((player, index) => {
         if (index !== currentVideoIndex) {
             player.pauseVideo();
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCarousel();
 
-    // Intersection Observer for card animations
+    // Observador de Interseção para animações de cartão
     const cards = document.querySelectorAll('.card');
 
     const observer = new IntersectionObserver((entries) => {
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 
-    // Dropdown menu
+    // Menu suspenso
     const dropdown = document.querySelector('.dropdown');
     if (dropdown) {
         const dropdownMenu = dropdown.querySelector('.dropdown-menu');
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 3D Carousel controls
+    // Controles do Carrossel 3D
     const prev3dBtn = document.querySelector('.carousel-3d-control.prev');
     const next3dBtn = document.querySelector('.carousel-3d-control.next');
 
@@ -166,13 +166,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Hamburger menu
+    // Menu hambúrguer
     const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    const navButtons = document.querySelector('.nav-buttons');
 
-    if (hamburger && navLinks) {
+    if (hamburger && navButtons) {
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            navButtons.classList.toggle('active');
         });
     }
 });

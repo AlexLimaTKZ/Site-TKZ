@@ -3,10 +3,10 @@
 
 :root {
  --bg-color: #000000; /* preto */
- --element-bg-color: #1A1D21; /* dark gray for elements */
+ --element-bg-color: #1A1D21; /* cinza escuro para elementos */
  --text-color: #FFFFFF; /* branco */
  --secondary-text-color: #6B7280; /* cinza */
- --accent-color: #00CCFF; /* cyan */
+ --accent-color: #00CCFF; /* ciano */
  --border-color: #374151; /* cinza escuro para bordas */
 }
 
@@ -25,7 +25,7 @@ body {
 a {
  color: var(--text-color);
  text-decoration: none;
- transition: color 0.3s ease; /* transition-all duration-300 */
+ transition: color 0.3s ease; /* transição-tudo duração-300 */
 }
 
 a:hover {
@@ -46,14 +46,14 @@ header {
 
 nav {
  display: flex;
- justify-content: flex-start; /* Align logo to start */
+ justify-content: flex-start; /* Alinhar logo para começar */
  align-items: center;
 }
 
-/* .logo rule was removed */
+/* regra .logo foi removida */
 
 .nav-logo {
-    height: 100px; /* Adjust as needed */
+    height: 100px; /* Ajuste conforme necessário */
     width: auto;
     vertical-align: middle;
     margin-top: -32px;   
@@ -76,7 +76,7 @@ nav {
  left: 0;
  background-color: var(--element-bg-color);
  padding: 0.5rem 0;
- border-radius: 0.5rem; /* rounded-lg */
+ border-radius: 0.5rem; /* arredondado-lg */
  display: none;
  min-width: 150px;
 }
@@ -105,7 +105,7 @@ nav {
 .nav-buttons {
  display: flex;
  gap: 1rem;
- margin-left: auto; /* Push to the right */
+ margin-left: auto; /* Empurre para a direita */
  align-items: center;
 }
 
@@ -114,17 +114,17 @@ nav {
  color: var(--text-color);
  border: none;
  padding: 0.5rem 1rem;
- border-radius: 0.5rem; /* rounded-lg */
+ border-radius: 0.5rem; /* arredondado-lg */
  cursor: pointer;
- transition: all 0.3s ease; /* transition-all duration-300 */
+ transition: all 0.3s ease; /* transição-tudo duração-300 */
 }
 
 .btn-primary:hover {
- opacity: 0.9; /* Subtle hover effect */
+ opacity: 0.9; /* Efeito sutil de hover */
 }
 
 .btn-twitch {
-    background-color: #6441a5; /* Twitch purple */
+    background-color: #6441a5; /* Roxo Twitch */
     color: var(--text-color);
     border: none;
     padding: 0.5rem 1rem;
@@ -134,11 +134,11 @@ nav {
 }
 
 .btn-twitch:hover {
-    opacity: 0.9; /* Subtle hover effect */
+    opacity: 0.9; /* Efeito sutil de hover */
 }
 
 .btn-tiktok {
-    background-color: #000000; /* Black */
+    background-color: #000000; /* Preto */
     color: var(--text-color);
     border: none;
     padding: 0.5rem 1rem;
@@ -148,7 +148,7 @@ nav {
 }
 
 .btn-tiktok:hover {
-    opacity: 0.8; /* Subtle hover effect */
+    opacity: 0.8; /* Efeito sutil de hover */
 }
 
 .btn-streamers {
@@ -158,9 +158,9 @@ nav {
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
-    position: relative; /* Needed for pseudo-element positioning */
-    overflow: hidden; /* Hide overflowing pseudo-element */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition for text and background */
+    position: relative; /* Necessário para o posicionamento do pseudo-elemento */
+    overflow: hidden; /* Ocultar pseudo-elemento transbordante */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Transição suave para texto e fundo */
     z-index: 1;
 }
 
@@ -171,24 +171,24 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #6441a5; /* Twitch purple */
+    background-color: #6441a5; /* Roxo Twitch */
     z-index: -1;
-    transition: transform 0.5s ease; /* Animation for background fill */
-    transform: scaleX(0); /* Start with no width */
-    transform-origin: left; /* Expand from left */
+    transition: transform 0.5s ease; /* Animação para preenchimento de fundo */
+    transform: scaleX(0); /* Comece sem largura */
+    transform-origin: left; /* Expandir da esquerda */
 }
 
 .btn-streamers:hover::before {
-    transform: scaleX(1); /* Fill background on hover */
+    transform: scaleX(1); /* Preencher o fundo ao passar o mouse */
 }
 
 .btn-streamers:hover {
-    color: var(--text-color); /* Ensure text remains white on hover */
-    background-color: transparent; /* Background is handled by ::before */
-    border-color: transparent; /* Border is handled by animation */
+    color: var(--text-color); /* Garanta que o texto permaneça branco ao passar o mouse */
+    background-color: transparent; /* O fundo é tratado por ::before */
+    border-color: transparent; /* A borda é tratada pela animação */
 }
 
-/* Animation for the white border line */
+/* Animação para a linha de borda branca */
 .btn-streamers::after {
     content: '';
     position: absolute;
@@ -231,36 +231,36 @@ nav {
 .btn-secondary {
  background-color: transparent;
  color: var(--text-color);
- border: 1px solid var(--border-color); /* Use new border color */
+ border: 1px solid var(--border-color); /* Use a nova cor da borda */
  padding: 0.5rem 1rem;
- border-radius: 0.5rem; /* rounded-lg */
+ border-radius: 0.5rem; /* arredondado-lg */
  cursor: pointer;
- transition: all 0.3s ease; /* transition-all duration-300 */
+ transition: all 0.3s ease; /* transição-tudo duração-300 */
 }
 
 .btn-secondary:hover {
  border-color: var(--accent-color); /* hover:border-cyan-400 */
- color: var(--accent-color); /* Change text color on hover */
+ color: var(--accent-color); /* Altera a cor do texto no hover */
 }
 
-/* Hero Section */
+/* Seção do Herói */
 #hero {
  display: flex;
  align-items: center;
  justify-content: center;
  text-align: center;
- height: calc(100vh - 60px); /* Adjust height considering header height */
+ height: calc(100vh - 60px); /* Ajuste a altura considerando a altura do cabeçalho */
  position: relative;
  overflow: hidden;
 }
 
 .hero-logo {
-    max-width: 400px; /* Even larger size */
+    max-width: 400px; /* Tamanho ainda maior */
     height: auto;
-    margin-bottom: 0; /* Closest possible */
-    opacity: 0; /* Start hidden for animation */
-    transform: scale(1.2); /* Start larger for animation */
-    animation: fadeInZoomOut 1s ease-out forwards; /* Apply same animation as h1 */
+    margin-bottom: 0; /* O mais próximo possível */
+    opacity: 0; /* Comece oculto para animação */
+    transform: scale(1.2); /* Comece maior para animação */
+    animation: fadeInZoomOut 1s ease-out forwards; /* Aplique a mesma animação que h1 */
 }
 
 
@@ -268,18 +268,18 @@ nav {
  font-size: 5rem;
  font-weight: bold;
  line-height: 1.1;
- margin-bottom: 0; /* Closest possible */
+ margin-bottom: 0; /* O mais próximo possível */
  margin-top: -6.5rem;
- animation: fadeInZoomOut 1s ease-out forwards; /* Animation for E-sports */
+ animation: fadeInZoomOut 1s ease-out forwards; /* Animação para E-sports */
 }
 
 .hero-content p {
  font-size: 1.2rem;
- color: var(--accent-color); /* Changed to accent blue */
+ color: var(--accent-color); /* Alterado para azul de destaque */
  max-width: 600px;
- margin: 0 auto; /* Closest possible */
+ margin: 0 auto; /* O mais próximo possível */
  animation: slideInUp 0.8s ease-out forwards;
- animation-delay: 0.5s; /* Start after h1 animation begins */
+ animation-delay: 0.5s; /* Comece após o início da animação h1 */
 }
 
 .hero-glow {
@@ -289,21 +289,21 @@ nav {
  background: radial-gradient(circle, var(--accent-color) 0%, rgba(0,191,255,0) 70%);
  filter: blur(100px);
  z-index: -1;
- transition: all 0.3s ease; /* Add transition for smooth effect */
+ transition: all 0.3s ease; /* Adicionar transição para efeito suave */
 }
 
 #hero:hover .hero-glow {
-    filter: blur(70px); /* Make it less blurry, thus more intense */
-    opacity: 1; /* Ensure full opacity */
-    transform: scale(1.1); /* Slightly larger */
+    filter: blur(70px); /* Torne-o menos embaçado, portanto mais intenso */
+    opacity: 1; /* Garanta opacidade total */
+    transform: scale(1.1); /* Um pouco maior */
 }
 
 .subtitle {
     color: var(--secondary-text-color);
-    margin-bottom: 3rem; /* Increased margin for more spacing */
+    margin-bottom: 3rem; /* Margem aumentada para mais espaçamento */
     text-align: center;
 }
-/* TKZ em Ação Section */
+/* Seção TKZ em Ação */
 #tkz-em-acao {
  padding: 4rem 2rem;
  text-align: center;
@@ -315,8 +315,8 @@ nav {
 }
 
 .carousel-3d-container {
-    width: 720px; /* Increased width */
-    height: 405px; /* Increased height (maintaining 16:9 aspect ratio) */
+    width: 720px; /* Largura aumentada */
+    height: 405px; /* Altura aumentada (mantendo a proporção 16:9) */
     margin: 0 auto;
     position: relative;
     perspective: 1000px;
@@ -371,7 +371,7 @@ h2 {
  text-align: center;
 }
 
-/* Nossas Conquistas Section */
+/* Seção Nossas Conquistas */
 #conquistas {
  padding: 4rem 2rem;
 }
@@ -402,13 +402,13 @@ h2 {
 .card {
  background-color: var(--element-bg-color);
  padding: 2rem;
- border-radius: 0.5rem; /* rounded-lg */
+ border-radius: 0.5rem; /* arredondado-lg */
  text-align: left;
  opacity: 0;
  transform: translateY(20px);
- transition: all 0.3s ease; /* transition-all duration-300 */
+ transition: all 0.3s ease; /* transição-tudo duração-300 */
  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
- border: 1px solid var(--border-color); /* border-cryan-400/30 */
+ border: 1px solid var(--border-color); /* borda-ciano-400/30 */
 }
 
 .card:hover {
@@ -463,7 +463,7 @@ h2 {
  right: -20px;
 }
 
-/* Últimas Notícias Section */
+/* Seção Últimas Notícias */
 #noticias {
  padding: 4rem 2rem;
 }
@@ -500,7 +500,7 @@ h2 {
  display: inline-block;
 }
 
-/* Nossa Equipe Section (used in staff.html) */
+/* Seção Nossa Equipe (usada em staff.html) */
 #equipe {
  padding: 4rem 2rem;
 }
@@ -537,7 +537,7 @@ h2 {
 }
 
 .card .posicao.admin {
- color: #28a745; /* Green */
+ color: #28a745; /* Verde */
 }
 
 .card .posicao.coach {
@@ -545,14 +545,14 @@ h2 {
 }
 
 .card .posicao.social {
- color: #ffc107; /* Yellow */
+ color: #ffc107; /* Amarelo */
 }
 
 .card .posicao.player {
- color: #dc3545; /* Red */
+ color: #dc3545; /* Vermelho */
 }
 
-/* Parceiros Section */
+/* Seção de Parceiros */
 #parceiros {
  padding: 4rem 2rem;
 }
@@ -574,7 +574,7 @@ h2 {
  font-weight: bold;
 }
 
-/* Footer */
+/* Rodapé */
 footer {
  background-color: var(--element-bg-color);
  color: var(--secondary-text-color);
@@ -592,7 +592,7 @@ footer {
 }
 
 .footer-section h1, .footer-section h2 {
- color: var(--accent-color); /* Changed to accent blue */
+ color: var(--accent-color); /* Alterado para azul de destaque */
     /* Define uma altura mínima e margem inferior consistentes */
     min-height: 2.2rem; /* Garante que todos os títulos ocupem a mesma altura */
  margin-bottom: 1rem; /* Espaçamento consistente abaixo do título */
@@ -626,7 +626,7 @@ footer {
 }
 
 .social-icons a {
- /*margin-right: 1rem;*/
+ /* margem-direita: 1rem; */
  font-size: 1.5rem;
  color: var(--text-color);
 }
@@ -638,7 +638,7 @@ footer {
  margin-top: 2rem;
 }
 
-/* Responsive Styles */
+/* Estilos Responsivos */
 .hamburger {
  display: none;
  cursor: pointer;
@@ -660,35 +660,36 @@ footer {
 
  .hamburger {
  display: block;
+ margin-left: auto; /* Mover para a direita */
  }
 
- .nav-links.active {
+ .nav-buttons.active {
  display: flex;
  flex-direction: column;
  position: absolute;
  top: 60px;
- left: 0;
+ right: 0; /* Alinhar à direita */
  background-color: var(--element-bg-color);
  width: 100%;
  padding: 1rem 0;
+ align-items: center;
  }
 
- .nav-links.active li {
+ .nav-buttons.active .nav-links {
+ display: flex;
+ flex-direction: column;
+ width: 100%;
+ }
+
+ .nav-buttons.active .nav-links li {
  padding: 1rem 0;
  text-align: center;
  }
 
-.conquistas-grid, .noticias-grid, .equipe-grid {
- grid-template-columns: repeat(2, 1fr);
- }
-
- .parceiros-grid, .footer-content {
- grid-template-columns: repeat(2, 1fr);
- }
-
- .carousel-3d-container {
- width: 100%;
- max-width: 560px;
+ .nav-buttons.active .btn-streamers,
+ .nav-buttons.active .btn-primary {
+    display: block;
+    margin: 0.5rem auto;
  }
 }
 
@@ -710,7 +711,7 @@ footer {
  }
 }
 
-/* Social Media Page Styles */
+/* Estilos da Página de Mídias Sociais */
 .social-media-page {
     padding: 4rem 2rem;
     text-align: center;
@@ -750,14 +751,14 @@ footer {
 .social-card p {
     color: var(--secondary-text-color);
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Allows description to take available space */
+    flex-grow: 1; /* Permite que a descrição ocupe o espaço disponível */
 }
 
 .social-icon {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: var(--accent-color); /* Placeholder background */
+    background-color: var(--accent-color); /* Fundo do placeholder */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -767,7 +768,7 @@ footer {
     margin-bottom: 1.5rem;
 }
 
-/* Specific icons - using background images or font icons would be better */
+/* Ícones específicos - usar imagens de fundo ou ícones de fonte seria melhor */
 .discord-icon::before { content: "D"; }
 .instagram-icon::before { content: "I"; }
 .whatsapp-icon::before { content: "W"; }
@@ -795,13 +796,13 @@ footer {
 }
 
 .social-btn {
-    margin-top: auto; /* Pushes button to the bottom */
+    margin-top: auto; /* Empurra o botão para a parte inferior */
     width: 100%;
     padding: 0.75rem 1rem;
     font-size: 1.1rem;
 }
 
-/* Responsive adjustments for social media page */
+/* Ajustes responsivos para a página de mídias sociais */
 @media (max-width: 768px) {
     .social-cards-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -814,7 +815,7 @@ footer {
     }
 }
 
-/* Teams Page Styles */
+/* Estilos da Página de Times */
 .teams-page {
     padding: 4rem 2rem;
     text-align: center;
@@ -858,7 +859,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slightly lighter shadow for inner cards */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra um pouco mais clara para cartões internos */
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
@@ -892,7 +893,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Community Page Styles */
+/* Estilos da Página da Comunidade */
 .community-page {
     padding: 4rem 2rem;
     text-align: center;
@@ -929,27 +930,27 @@ footer {
     width: 100%;
     min-height: 120px;
     padding: 1rem;
-    border: 1px solid var(--border-color); /* Use new border color */
-    border-radius: 0.5rem; /* rounded-lg */
+    border: 1px solid var(--border-color); /* Usar nova cor de borda */
+    border-radius: 0.5rem; /* arredondado-lg */
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     resize: vertical;
     margin-bottom: 1rem;
-    transition: border-color 0.3s ease; /* Add transition */
+    transition: border-color 0.3s ease; /* Adicionar transição */
 }
 
 .new-post-section textarea:focus {
     outline: none;
-    border-color: var(--accent-color); /* Highlight on focus */
+    border-color: var(--accent-color); /* Destacar no foco */
 }
 
 .new-post-section button {
     width: auto;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    float: right; /* Align button to the right */
+    float: right; /* Alinhar botão à direita */
 }
 
 .posts-section {
@@ -1010,7 +1011,7 @@ footer {
     color: var(--accent-color);
 }
 
-/* Keyframe Animations */
+/* Animações de Keyframe */
 @keyframes fadeInZoomOut {
     0% {
         opacity: 0;
@@ -1033,14 +1034,14 @@ footer {
     }
 }
 
-/* Coming Soon Page Styles */
+/* Estilos da Página Em Breve */
 .coming-soon {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: calc(100vh - 120px); /* Adjust height considering header and footer */
+    height: calc(100vh - 120px); /* Ajustar altura considerando cabeçalho e rodapé */
     padding: 2rem;
 }
 

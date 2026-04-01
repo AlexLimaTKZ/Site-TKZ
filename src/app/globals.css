@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #000000;
+  --color-bg-element: #1A1D21;
+  --color-bg-element-hover: #22262B;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #9CA3AF;
+  --color-text-muted: #6B7280;
+  --color-accent: #00CCFF;
+  --color-accent-dark: #0099CC;
+  --color-accent-glow: rgba(0, 204, 255, 0.15);
+  --color-accent-glow-strong: rgba(0, 204, 255, 0.3);
+  --color-border: #374151;
+  --color-border-hover: #00CCFF;
+  --color-twitch: #6441a5;
+  --color-tiktok: #ff0050;
+  --color-discord: #5865F2;
+  --color-instagram: #E1306C;
+  --color-whatsapp: #25D366;
+  --color-fundador: #00CCFF;
+  --color-admin: #28a745;
+  --color-coach: #FFFFFF;
+  --color-social: #ffc107;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Bebas Neue", system-ui, sans-serif;
+  --font-handwriting: "Permanent Marker", cursive;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Noise overlay for premium texture */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}

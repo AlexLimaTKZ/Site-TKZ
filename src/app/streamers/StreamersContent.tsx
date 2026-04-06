@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import { AnimatedSection, AnimatedItem } from "@/components/AnimatedSection";
 import { ExternalLink, Users } from "lucide-react";
 import { TiltCard } from "@/components/TiltCard";
+import Image from "next/image";
 
 const streamers = [
   {
     initials: "AL",
     name: "Alex Lima",
     tag: "LiderTKZ",
+    photo: "/Staff/Alex Lima.png",
     bio: "Salve! Sou Alex Lima. Fundador da TKZ E-sports — direto de Teresina pro mundo. Top 1 Rammus, otaku raiz e pensador noturno, apaixonado por filosofia, psicologia e tudo que mexe com o cérebro. Tryhard nos games e na vida, sempre buscando o próximo nível com sabedoria, intensidade.",
     stats: "2.000 seguidores na Twitch",
     platform: "Twitch",
@@ -22,6 +24,7 @@ const streamers = [
     initials: "MB",
     name: "Marlon Brito",
     tag: "TKZ Caveiro",
+    photo: "/Staff/Marlon Brito.jpeg",
     bio: "Marlon Brito, mais conhecido como TKZ Caveiro, faz lives em sua grande maioria de eFootball, com resenha garantida, muita zoeira e diversão. Acompanhe suas lives de Domingo a Sexta toda noite no Tiktok.",
     stats: "",
     platform: "TikTok",
@@ -29,6 +32,19 @@ const streamers = [
     platformHover: "hover:bg-text/10",
     link: "https://www.tiktok.com/@marlonbritobjj",
     gradient: "from-pink-500 to-red-500",
+  },
+  {
+    initials: "MR",
+    name: "Marley Brito",
+    tag: "Mulambo Games",
+    photo: "/Staff/Marley Brito.jpeg",
+    bio: "Marley Brito, o Mulambo Games, é o streamer que enfrenta os horrores dos games de terror com coragem (e sustos!). Especialista em Resident Evil e outros títulos de horror, suas lives no TikTok garantem adrenalina, risadas e muita tensão.",
+    stats: "",
+    platform: "TikTok",
+    platformColor: "bg-bg border border-text/20",
+    platformHover: "hover:bg-text/10",
+    link: "https://www.tiktok.com/@mulambogames",
+    gradient: "from-emerald-500 to-green-700",
   },
 ];
 
@@ -70,8 +86,8 @@ export function StreamersContent() {
       </section>
 
       {/* Streamers Grid */}
-      <AnimatedSection className="mx-auto max-w-4xl px-6 pb-24">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <AnimatedSection className="mx-auto max-w-6xl px-6 pb-24">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {streamers.map((streamer) => (
             <AnimatedItem key={streamer.name}>
               <TiltCard className="group relative flex h-full flex-col rounded-2xl border border-border bg-bg-element p-8 transition-all hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,204,255,0.1)]">
@@ -87,8 +103,14 @@ export function StreamersContent() {
                 )}
 
                 {/* Avatar */}
-                <div className={`mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br ${streamer.gradient} text-3xl font-bold text-white shadow-lg ring-2 ring-bg ring-offset-2 ring-offset-bg-element transition-transform group-hover:scale-105`}>
-                  {streamer.initials}
+                <div className="relative mx-auto mb-6 h-28 w-28 overflow-hidden rounded-full ring-2 ring-accent/30 ring-offset-2 ring-offset-bg-element transition-transform group-hover:scale-105">
+                  <Image
+                    src={streamer.photo}
+                    alt={`Foto de ${streamer.name}, streamer da TKZ E-SPORTS`}
+                    fill
+                    className="object-cover object-top"
+                    sizes="112px"
+                  />
                 </div>
 
                 {/* Info */}

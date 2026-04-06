@@ -1,18 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Trophy, Medal, Tag, ArrowRight } from "lucide-react";
+import { Tag, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { AnimatedSection, AnimatedItem } from "@/components/AnimatedSection";
 import { StatsCounter } from "@/components/StatsCounter";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { TiltCard } from "@/components/TiltCard";
 
 const conquistas = [
-  { icon: <Trophy className="h-8 w-8" />, title: "Campeão Invicto", desc: "Copa Nordeste - Piauí" },
-  { icon: <Medal className="h-8 w-8" />, title: "Tricampeão", desc: "Fase de Acesso Liga GG" },
-  { icon: <Trophy className="h-8 w-8" />, title: "Campeão Serie C", desc: "Liga GG" },
-  { icon: <Medal className="h-8 w-8" />, title: "Vice Campeão Serie B", desc: "Liga GG" },
-  { icon: <Trophy className="h-8 w-8" />, title: "Campeão Serie A", desc: "Liga GG" },
+  { image: "/images/conquistas/campeao-invicto.png", title: "Campeão Invicto", desc: "Copa Nordeste - Piauí" },
+  { image: "/images/conquistas/tricampeao.png", title: "Tricampeão", desc: "Fase de Acesso Liga GG" },
+  { image: "/images/conquistas/campeao-serie-c.png", title: "Campeão Serie C", desc: "Liga GG" },
+  { image: "/images/conquistas/vice-campeao-serie-b.png", title: "Vice Campeão Serie B", desc: "Liga GG" },
+  { image: "/images/conquistas/campeao-serie-a.png", title: "Acesso à Serie A", desc: "Liga GG" },
 ];
 
 const noticias = [
@@ -95,12 +96,21 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {conquistas.map((c, i) => (
             <AnimatedItem key={i}>
-              <TiltCard className="group rounded-2xl border border-border bg-bg-element p-6 transition-all hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,204,255,0.1)]">
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-accent-glow text-accent transition-transform group-hover:scale-110">
-                  {c.icon}
+              <TiltCard className="group overflow-hidden rounded-2xl border border-border bg-bg-element transition-all hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,204,255,0.1)]">
+                <div className="relative aspect-[16/10] w-full overflow-hidden">
+                  <Image
+                    src={c.image}
+                    alt={`${c.title} - ${c.desc}, conquista da TKZ E-SPORTS`}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-element via-bg-element/30 to-transparent" />
                 </div>
-                <h3 className="text-xl font-bold tracking-tight">{c.title}</h3>
-                <p className="mt-1 text-sm text-text-secondary">{c.desc}</p>
+                <div className="relative -mt-4 px-6 pb-6">
+                  <h3 className="text-xl font-bold tracking-tight">{c.title}</h3>
+                  <p className="mt-1 text-sm text-text-secondary">{c.desc}</p>
+                </div>
               </TiltCard>
             </AnimatedItem>
           ))}

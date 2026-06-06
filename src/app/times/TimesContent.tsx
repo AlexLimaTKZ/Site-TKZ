@@ -1,7 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Gamepad2, Clock } from "lucide-react";
+import { Clock, Gamepad2, Trophy, Users } from "lucide-react";
+
+const teamPillars = [
+  {
+    icon: <Trophy className="h-5 w-5" />,
+    title: "Competitivo",
+    desc: "Elencos preparados para ligas, copas e eventos locais com rotina de treino e acompanhamento.",
+  },
+  {
+    icon: <Users className="h-5 w-5" />,
+    title: "Base regional",
+    desc: "Valorizamos atletas do Piauí e do Nordeste, conectando talento local a oportunidades maiores.",
+  },
+  {
+    icon: <Gamepad2 className="h-5 w-5" />,
+    title: "Multijogos",
+    desc: "A TKZ acompanha League of Legends, Wild Rift, TFT, eFootball e novas frentes da comunidade.",
+  },
+];
 
 export function TimesContent() {
   return (
@@ -17,7 +35,7 @@ export function TimesContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-handwriting text-lg text-accent/70"
+            className="text-sm font-semibold uppercase tracking-[0.24em] text-accent/70"
           >
             Roster Oficial
           </motion.p>
@@ -40,14 +58,14 @@ export function TimesContent() {
         </div>
       </section>
 
-      {/* Em Breve */}
+      {/* Team Pipeline */}
       <section className="mx-auto max-w-3xl px-6 pb-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="relative flex flex-col items-center rounded-2xl border border-border bg-bg-element p-12 text-center sm:p-16"
+          className="relative flex flex-col items-center rounded-2xl border border-border bg-bg-element p-8 text-center sm:p-12"
         >
           {/* Glow */}
           <div className="absolute -inset-1 -z-10 rounded-2xl bg-accent/5 blur-2xl" />
@@ -62,20 +80,42 @@ export function TimesContent() {
           </motion.div>
 
           <h2 className="font-display text-4xl tracking-tight sm:text-5xl">
-            Em Breve
+            Roster em Construção
           </h2>
 
           <p className="mx-auto mt-4 max-w-md text-text-secondary">
-            Nosso time está sendo formado e em breve entraremos em atividade.
-            Fique ligado nas nossas redes sociais para novidades!
+            Estamos organizando a próxima fase competitiva da TKZ. Enquanto os elencos oficiais são definidos,
+            a comunidade é o melhor caminho para acompanhar peneiras, treinos, campeonatos e chamadas.
           </p>
 
+          <div className="mt-8 grid w-full grid-cols-1 gap-4 text-left sm:grid-cols-3">
+            {teamPillars.map((pillar) => (
+              <div key={pillar.title} className="rounded-xl border border-border/70 bg-bg p-4">
+                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-glow text-accent">
+                  {pillar.icon}
+                </div>
+                <h3 className="font-semibold tracking-tight">{pillar.title}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-text-secondary">{pillar.desc}</p>
+              </div>
+            ))}
+          </div>
+
           {/* Status badge */}
-          <div className="mt-8 flex items-center gap-2 rounded-full border border-yellow-500/20 bg-yellow-500/5 px-5 py-2">
-            <Clock className="h-4 w-4 text-yellow-400" />
-            <span className="text-sm font-semibold text-yellow-400">
-              Preparando o roster
-            </span>
+          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">
+            <div className="flex items-center gap-2 rounded-full border border-yellow-500/20 bg-yellow-500/5 px-5 py-2">
+              <Clock className="h-4 w-4 text-yellow-400" />
+              <span className="text-sm font-semibold text-yellow-400">
+                Preparando o roster
+              </span>
+            </div>
+            <a
+              href="https://discord.gg/5CnzeWUJPG"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-bg transition-all hover:bg-accent-dark"
+            >
+              Acompanhar peneiras
+            </a>
           </div>
         </motion.div>
       </section>

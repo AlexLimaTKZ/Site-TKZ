@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lock } from "lucide-react";
+import { Lock, MessageCircle } from "lucide-react";
 
 export default function LoginPage() {
   return (
@@ -33,7 +33,7 @@ export default function LoginPage() {
           transition={{ delay: 0.2 }}
           className="font-display text-7xl tracking-tight text-accent sm:text-8xl"
         >
-          Em Breve
+          Área TKZ
         </motion.h1>
 
         <motion.p
@@ -42,8 +42,22 @@ export default function LoginPage() {
           transition={{ delay: 0.4 }}
           className="mx-auto mt-4 max-w-md text-lg text-text-secondary"
         >
-          Nosso sistema de login e cadastro está sendo preparado. Fique de olho!
+          O acesso interno da organização está sendo preparado. Para comunidade, peneiras e novidades,
+          use os canais oficiais da TKZ.
         </motion.p>
+
+        <motion.a
+          href="https://discord.gg/5CnzeWUJPG"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mt-8 inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-3 font-semibold text-bg transition-all hover:bg-accent-dark hover:shadow-[0_0_30px_rgba(0,204,255,0.4)]"
+        >
+          <MessageCircle className="h-4 w-4" />
+          Entrar no Discord
+        </motion.a>
       </div>
     </section>
   );

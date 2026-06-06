@@ -62,7 +62,7 @@ export function StreamersContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-handwriting text-lg text-twitch/70"
+            className="text-sm font-semibold uppercase tracking-[0.24em] text-twitch/70"
           >
             Creators
           </motion.p>
@@ -91,14 +91,10 @@ export function StreamersContent() {
           {streamers.map((streamer) => (
             <AnimatedItem key={streamer.name}>
               <TiltCard className="group relative flex h-full flex-col rounded-2xl border border-border bg-bg-element p-8 transition-all hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,204,255,0.1)]">
-                {/* LIVE Badge for Twitch streamers */}
+                {/* Platform badge */}
                 {streamer.platform === "Twitch" && (
-                  <span className="absolute -top-3 right-4 flex items-center gap-1.5 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-0.5 text-xs font-semibold text-red-400">
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
-                    </span>
-                    LIVE
+                  <span className="absolute -top-3 right-4 rounded-full border border-twitch/30 bg-twitch/10 px-3 py-0.5 text-xs font-semibold text-purple-300">
+                    Twitch
                   </span>
                 )}
 
@@ -130,6 +126,7 @@ export function StreamersContent() {
                 <a
                   href={streamer.link}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className={`flex items-center justify-center gap-2 rounded-xl ${streamer.platformColor} ${streamer.platformHover} px-6 py-3 font-semibold text-text transition-all`}
                 >
                   <ExternalLink className="h-4 w-4" />

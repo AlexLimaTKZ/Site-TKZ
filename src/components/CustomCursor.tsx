@@ -6,15 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 export function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Only show custom cursor on desktop
-    const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) return;
-
-    setIsVisible(true);
-
     const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
@@ -42,13 +35,11 @@ export function CustomCursor() {
     };
   }, []);
 
-  if (!isVisible) return null;
-
   return (
     <AnimatePresence>
       {/* Outer ring */}
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[99999] rounded-full border border-accent/40 mix-blend-difference"
+        className="pointer-events-none fixed left-0 top-0 z-[99999] hidden rounded-full border border-accent/40 mix-blend-difference md:block"
         animate={{
           x: position.x - (isHovering ? 24 : 16),
           y: position.y - (isHovering ? 24 : 16),
@@ -60,7 +51,7 @@ export function CustomCursor() {
       />
       {/* Inner dot */}
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[99999] rounded-full bg-accent"
+        className="pointer-events-none fixed left-0 top-0 z-[99999] hidden rounded-full bg-accent md:block"
         animate={{
           x: position.x - 3,
           y: position.y - 3,

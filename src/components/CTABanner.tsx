@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Send } from "lucide-react";
+import { Camera, MessageCircle } from "lucide-react";
 
 export function CTABanner() {
   return (
@@ -17,7 +17,7 @@ export function CTABanner() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-2 font-handwriting text-lg text-accent"
+            className="mb-2 text-sm font-semibold uppercase tracking-[0.24em] text-accent"
           >
             Comunidade TKZ
           </motion.p>
@@ -37,12 +37,12 @@ export function CTABanner() {
             transition={{ delay: 0.2 }}
             className="mt-3 max-w-lg text-text-secondary"
           >
-            Receba notícias, resultados de campeonatos e conteúdo exclusivo.
-            Junte-se a milhares de fãs que acompanham a TKZ.
+            Acompanhe avisos, resultados, bastidores e chamadas para jogar com a
+            comunidade que acompanha a TKZ desde a base.
           </motion.p>
         </div>
 
-        {/* Form */}
+        {/* Actions */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,19 +50,28 @@ export function CTABanner() {
           transition={{ delay: 0.3 }}
           className="flex w-full max-w-md flex-col gap-3 sm:flex-row"
         >
-          <input
-            type="email"
-            placeholder="Seu melhor e-mail"
-            className="flex-1 rounded-xl border border-border bg-bg-element px-5 py-3.5 text-sm text-text outline-none transition-all placeholder:text-text-muted focus:border-accent focus:shadow-[0_0_20px_rgba(0,204,255,0.15)]"
-          />
-          <motion.button
+          <motion.a
+            href="https://discord.gg/5CnzeWUJPG"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold text-bg transition-all hover:bg-accent-dark hover:shadow-[0_0_30px_rgba(0,204,255,0.4)]"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold text-bg transition-all hover:bg-accent-dark hover:shadow-[0_0_30px_rgba(0,204,255,0.4)]"
           >
-            <Send className="h-4 w-4" />
-            Inscrever
-          </motion.button>
+            <MessageCircle className="h-4 w-4" />
+            Discord
+          </motion.a>
+          <motion.a
+            href="https://www.instagram.com/esportstkz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-border px-6 py-3.5 text-sm font-semibold text-text transition-all hover:border-instagram hover:text-instagram"
+          >
+            <Camera className="h-4 w-4" />
+            Instagram
+          </motion.a>
         </motion.div>
       </div>
     </section>

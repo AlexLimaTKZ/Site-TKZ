@@ -43,7 +43,7 @@ export function Footer() {
           <div>
             <h2 className="mb-4 font-display text-3xl tracking-tight text-accent">TKZ</h2>
             <p className="text-sm leading-relaxed text-text-secondary">
-              A organização de e-sports que está revolucionando o cenário competitivo brasileiro.
+              Comunidade competitiva de Teresina que conecta atletas, criadores e fãs desde 2014.
             </p>
           </div>
 
@@ -55,6 +55,7 @@ export function Footer() {
                 <Link
                   href="https://www.challengermode.com/s/TheKingZone"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm text-text-secondary transition-colors hover:text-accent"
                 >
                   Torneios
@@ -82,6 +83,7 @@ export function Footer() {
                   <Link
                     href={jogo.href}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-text-secondary transition-colors hover:text-accent"
                   >
                     {jogo.label}
@@ -100,6 +102,7 @@ export function Footer() {
                   key={social.label}
                   href={social.href}
                   target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-text-secondary transition-all hover:border-accent hover:text-accent hover:shadow-[0_0_15px_rgba(0,204,255,0.2)]"
                 >

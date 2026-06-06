@@ -13,8 +13,8 @@ import "swiper/css/pagination";
 const slides = [
   {
     label: "Desde 2014",
-    title: "E-SPORTS",
-    subtitle: "A organização que está revolucionando o cenário competitivo brasileiro.",
+    title: "TKZ E-SPORTS",
+    subtitle: "De Teresina para o competitivo: comunidade, atletas e criadores unidos desde 2014.",
     cta: { text: "Entrar no Discord", href: "https://discord.gg/5CnzeWUJPG" },
     gradient: "from-accent/20 via-transparent to-transparent",
   },
@@ -36,7 +36,7 @@ const slides = [
 
 export function HeroCarousel() {
   return (
-    <section className="relative h-[calc(100vh-80px)] min-h-[600px] overflow-hidden">
+    <section className="relative h-[calc(100svh-80px)] min-h-[540px] overflow-hidden sm:min-h-[600px]">
       {/* Particles background */}
       <Particles count={50} />
 
@@ -79,31 +79,32 @@ export function HeroCarousel() {
                   alt="Logo TKZ E-SPORTS"
                   width={300}
                   height={300}
-                  className="mb-0 h-auto w-[200px] drop-shadow-[0_0_40px_rgba(0,204,255,0.3)] sm:w-[280px]"
+                  className="mb-0 h-auto w-[150px] drop-shadow-[0_0_40px_rgba(0,204,255,0.3)] sm:w-[280px]"
                   priority={i === 0}
                 />
 
                 {/* Label */}
-                <p className="-mt-8 font-handwriting text-lg text-accent/70">
+                <p className="-mt-5 text-sm font-semibold uppercase tracking-[0.24em] text-accent/70 sm:-mt-8">
                   {slide.label}
                 </p>
 
                 {/* Title */}
-                <h1 className="mt-2 font-display text-7xl tracking-tight sm:text-8xl md:text-9xl">
+                <h1 className="mt-2 font-display text-6xl tracking-tight sm:text-8xl md:text-9xl">
                   <span className="bg-gradient-to-r from-accent via-white to-accent bg-clip-text text-transparent">
                     {slide.title}
                   </span>
                 </h1>
 
                 {/* Subtitle */}
-                <p className="mt-4 max-w-lg text-lg text-text-secondary sm:text-xl">
+                <p className="mt-3 max-w-lg text-base text-text-secondary sm:mt-4 sm:text-xl">
                   {slide.subtitle}
                 </p>
 
                 {/* CTA */}
-                <div className="mt-8">
+                <div className="mt-6 sm:mt-8">
                   <a
                     href={slide.cta.href}
+                    rel={slide.cta.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     target={slide.cta.href.startsWith("http") ? "_blank" : undefined}
                     className="rounded-xl bg-accent px-8 py-3 font-semibold text-bg transition-all hover:bg-accent-dark hover:shadow-[0_0_30px_rgba(0,204,255,0.4)]"
                   >

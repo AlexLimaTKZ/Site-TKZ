@@ -55,7 +55,7 @@ export function SobreContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-handwriting text-lg text-accent/70"
+            className="text-sm font-semibold uppercase tracking-[0.24em] text-accent/70"
           >
             Nossa Jornada
           </motion.p>

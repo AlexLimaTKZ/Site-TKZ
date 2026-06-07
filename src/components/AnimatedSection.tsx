@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, type Variants } from "framer-motion";
 
 const containerVariants: Variants = {
@@ -22,6 +23,25 @@ const itemVariants: Variants = {
   },
 };
 
+/** Shared hook to check prefers-reduced-motion */
+function useReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mql.matches);
+
+    function handleChange(e: MediaQueryListEvent) {
+      setReduced(e.matches);
+    }
+
+    mql.addEventListener("change", handleChange);
+    return () => mql.removeEventListener("change", handleChange);
+  }, []);
+
+  return reduced;
+}
+
 export function AnimatedSection({
   children,
   className,
@@ -31,6 +51,16 @@ export function AnimatedSection({
   className?: string;
   id?: string;
 }) {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return (
+      <section id={id} className={className}>
+        {children}
+      </section>
+    );
+  }
+
   return (
     <motion.section
       id={id}
@@ -52,6 +82,12 @@ export function AnimatedItem({
   children: React.ReactNode;
   className?: string;
 }) {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div variants={itemVariants} className={className}>
       {children}
@@ -68,6 +104,12 @@ export function FadeIn({
   className?: string;
   delay?: number;
 }) {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

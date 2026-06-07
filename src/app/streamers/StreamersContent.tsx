@@ -5,6 +5,7 @@ import { AnimatedSection, AnimatedItem } from "@/components/AnimatedSection";
 import { ExternalLink, Users } from "lucide-react";
 import { TiltCard } from "@/components/TiltCard";
 import Image from "next/image";
+import { cn } from "@/lib/cn";
 
 const streamers = [
   {
@@ -127,7 +128,7 @@ export function StreamersContent() {
                   href={streamer.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-center gap-2 rounded-xl ${streamer.platformColor} ${streamer.platformHover} px-6 py-3 font-semibold text-text transition-all`}
+                  className={cn("flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold text-text transition-all", streamer.platformColor, streamer.platformHover)}
                 >
                   <ExternalLink className="h-4 w-4" />
                   Assistir na {streamer.platform}

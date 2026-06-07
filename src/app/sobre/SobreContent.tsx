@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/AnimatedSection";
+import { cn } from "@/lib/cn";
 
 const timelineEvents = [
   {
@@ -86,7 +87,7 @@ export function SobreContent() {
 
           {timelineEvents.map((event, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div className={`relative mb-12 flex flex-col gap-4 pl-20 sm:flex-row sm:gap-8 sm:pl-0 ${i % 2 === 0 ? "sm:flex-row-reverse sm:text-right" : ""}`}>
+              <div className={cn("relative mb-12 flex flex-col gap-4 pl-20 sm:flex-row sm:gap-8 sm:pl-0", i % 2 === 0 && "sm:flex-row-reverse sm:text-right")}>
                 {/* Dot */}
                 <div className="absolute left-6 top-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-accent bg-bg sm:left-1/2 sm:-translate-x-1/2">
                   <div className="h-2 w-2 rounded-full bg-accent" />

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Award, Star, Trophy, Users } from "lucide-react";
+import { cn } from "@/lib/cn";
 
 interface StaffMember {
   nickname: string;
@@ -160,12 +161,12 @@ function StaffCard({ member }: { member: StaffMember }) {
 
       {/* Card */}
       <div
-        className={`relative flex h-full flex-col overflow-hidden rounded-2xl border ${member.borderColor} bg-gradient-to-b from-bg-element to-[#0d0f11] transition-all duration-500 group-hover:border-opacity-90 group-hover:shadow-[0_0_40px_rgba(0,204,255,0.1)]`}
+        className={cn("relative flex h-full flex-col overflow-hidden rounded-2xl border bg-gradient-to-b from-bg-element to-[#0d0f11] transition-all duration-500 group-hover:border-opacity-90 group-hover:shadow-[0_0_40px_rgba(0,204,255,0.1)]", member.borderColor)}
       >
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_34%,rgba(0,204,255,0.08))] opacity-40" />
 
         {/* Photo area */}
-        <div className={`relative w-full overflow-hidden ${isFounder ? "aspect-[16/9] sm:aspect-[2/1]" : "aspect-[3/4]"}`}>
+        <div className={cn("relative w-full overflow-hidden", isFounder ? "aspect-[16/9] sm:aspect-[2/1]" : "aspect-[3/4]")}>
           {member.photo ? (
             <>
               <Image
@@ -190,7 +191,7 @@ function StaffCard({ member }: { member: StaffMember }) {
           {/* Role badge */}
           <div className="absolute left-3 top-3 z-10">
             <span
-              className={`inline-block rounded-full border border-white/10 bg-black/60 px-3 py-1 text-xs font-semibold uppercase tracking-widest backdrop-blur-md ${member.roleColor}`}
+              className={cn("inline-block rounded-full border border-white/10 bg-black/60 px-3 py-1 text-xs font-semibold uppercase tracking-widest backdrop-blur-md", member.roleColor)}
             >
               {member.department}
             </span>
@@ -211,7 +212,7 @@ function StaffCard({ member }: { member: StaffMember }) {
           {/* Real name */}
           <p className="mt-0.5 text-sm font-semibold text-text-secondary">{member.name}</p>
 
-          <p className={`mt-2 text-xs font-bold uppercase tracking-[0.2em] ${member.roleColor}`}>{member.role}</p>
+          <p className={cn("mt-2 text-xs font-bold uppercase tracking-[0.2em]", member.roleColor)}>{member.role}</p>
 
           {/* Description */}
           <p className="mt-3 text-sm leading-relaxed text-text-secondary">{member.desc}</p>
@@ -277,7 +278,7 @@ export function StaffContent() {
             <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {staffPillars.map((pillar) => (
                 <div key={pillar.label} className="rounded-xl border border-border/70 bg-bg p-5">
-                  <div className={`mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white/5 ${pillar.accent}`}>
+                  <div className={cn("mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white/5", pillar.accent)}>
                     {pillar.icon}
                   </div>
                   <h2 className="text-lg font-bold tracking-tight text-text">{pillar.label}</h2>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { AnimatedSection, AnimatedItem } from "@/components/AnimatedSection";
 import { ExternalLink, MessageCircle, Check } from "lucide-react";
+import { cn } from "@/lib/cn";
 
 const platforms = [
   {
@@ -82,7 +83,7 @@ export function RedesSociaisContent() {
                 whileTap={{ scale: 0.98 }}
               >
                 {/* Icon */}
-                <div className={`mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br ${platform.gradient} text-white shadow-lg`}>
+                <div className={cn("mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg", platform.gradient)}>
                   {platform.icon}
                 </div>
 
@@ -106,7 +107,7 @@ export function RedesSociaisContent() {
                 <a
                   href={platform.href}
                   target="_blank"
-                  className={`mt-auto flex w-full items-center justify-center gap-2 rounded-xl ${platform.btnColor} px-6 py-3 font-semibold text-white transition-all mt-6`}
+                  className={cn("mt-auto flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold text-white transition-all mt-6", platform.btnColor)}
                 >
                   <ExternalLink className="h-4 w-4" />
                   Acessar {platform.name}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
 
 interface TiltCardProps {
@@ -19,8 +19,23 @@ export function TiltCard({
   const cardRef = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState({ rotateX: 0, rotateY: 0 });
   const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 });
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mql.matches);
+
+    function handleChange(e: MediaQueryListEvent) {
+      setPrefersReducedMotion(e.matches);
+    }
+
+    mql.addEventListener("change", handleChange);
+    return () => mql.removeEventListener("change", handleChange);
+  }, []);
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (prefersReducedMotion) return;
+
     const card = cardRef.current;
     if (!card) return;
 
@@ -42,8 +57,19 @@ export function TiltCard({
   }
 
   function handleMouseLeave() {
+    if (prefersReducedMotion) return;
+
     setTransform({ rotateX: 0, rotateY: 0 });
     setGlare({ x: 50, y: 50, opacity: 0 });
+  }
+
+  // When prefers-reduced-motion is active, render without tilt/glare
+  if (prefersReducedMotion) {
+    return (
+      <div ref={cardRef} className={className}>
+        {children}
+      </div>
+    );
   }
 
   return (

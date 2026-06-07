@@ -32,6 +32,13 @@ export function Header() {
     return pathname === route;
   }
 
+  function handleDropdownKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setDropdownOpen((prev) => !prev);
+    }
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-bg-element/80 shadow-[0_8px_30px_rgba(0,0,0,0.18)] backdrop-blur-xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
@@ -59,6 +66,9 @@ export function Header() {
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
                   <button
+                    aria-expanded={dropdownOpen}
+                    onClick={() => setDropdownOpen((prev) => !prev)}
+                    onKeyDown={handleDropdownKeyDown}
                     className={`group relative flex items-center gap-1 rounded-md px-1 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 ${
                       link.children.some((child) => isActiveHref(child.href))
                         ? "text-accent"
@@ -144,20 +154,22 @@ export function Header() {
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="text-text lg:hidden"
-          aria-label="Menu"
+          aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — GPU-friendly animation (opacity + y instead of height) */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-border bg-bg-element/95 backdrop-blur-xl lg:hidden"
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="border-t border-border bg-bg-element/95 backdrop-blur-xl lg:hidden"
           >
             <div className="flex flex-col gap-1 px-6 py-4">
               {navLinks.map((link) =>

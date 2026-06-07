@@ -71,6 +71,21 @@ export function Footer() {
                   Times
                 </Link>
               </li>
+              <li>
+                <Link href="/comunidade" className="text-sm text-text-secondary transition-colors hover:text-accent">
+                  Comunidade
+                </Link>
+              </li>
+              <li>
+                <Link href="/streamers" className="text-sm text-text-secondary transition-colors hover:text-accent">
+                  Streamers
+                </Link>
+              </li>
+              <li>
+                <Link href="/redes-sociais" className="text-sm text-text-secondary transition-colors hover:text-accent">
+                  Redes Sociais
+                </Link>
+              </li>
             </ul>
           </div>
 

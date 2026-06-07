@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Camera, MessageCircle } from "lucide-react";
+import { Instagram, MessageCircle } from "lucide-react";
 
 export function CTABanner() {
   return (
@@ -69,7 +69,7 @@ export function CTABanner() {
             whileTap={{ scale: 0.98 }}
             className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-border px-6 py-3.5 text-sm font-semibold text-text transition-all hover:border-instagram hover:text-instagram"
           >
-            <Camera className="h-4 w-4" />
+            <Instagram className="h-4 w-4" />
             Instagram
           </motion.a>
         </motion.div>

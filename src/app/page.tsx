@@ -7,8 +7,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatedSection, AnimatedItem } from "@/components/AnimatedSection";
 import { StatsCounter } from "@/components/StatsCounter";
-import { HeroCarousel } from "@/components/HeroCarousel";
+import { HeroBanner } from "@/components/HeroBanner";
+import { cn } from "@/lib/cn";
 import { TiltCard } from "@/components/TiltCard";
+import { PartnerMarquee } from "@/components/PartnerMarquee";
 
 const conquistas = [
   {
@@ -97,7 +99,7 @@ const modalidades = [
     name: "League of Legends",
     label: "MOBA PC",
     desc: "Estratégia, macrojogo e competição em equipe no cenário que molda a base da TKZ.",
-    href: "/times",
+    href: "https://www.leagueoflegends.com/pt-br/",
     icon: <Trophy className="h-5 w-5" />,
     accent: "text-yellow-300",
     border: "hover:border-yellow-300/50",
@@ -107,7 +109,7 @@ const modalidades = [
     name: "Wild Rift",
     label: "Mobile",
     desc: "Velocidade, rotação e mecânica para levar o competitivo também para o mobile.",
-    href: "/times",
+    href: "https://wildrift.leagueoflegends.com/pt-br/",
     icon: <Gamepad2 className="h-5 w-5" />,
     accent: "text-accent",
     border: "hover:border-accent/50",
@@ -117,7 +119,7 @@ const modalidades = [
     name: "Teamfight Tactics",
     label: "Auto battler",
     desc: "Leitura de meta, adaptação e tomada de decisão para quem vence antes da luta começar.",
-    href: "/comunidade",
+    href: "https://teamfighttactics.leagueoflegends.com/pt-br/",
     icon: <Star className="h-5 w-5" />,
     accent: "text-purple-300",
     border: "hover:border-purple-300/50",
@@ -127,7 +129,7 @@ const modalidades = [
     name: "eFootball",
     label: "Esporte digital",
     desc: "Resenha, rivalidade e técnica para aproximar a comunidade do futebol competitivo.",
-    href: "/streamers",
+    href: "https://www.konami.com/efootball/pt-br/",
     icon: <Award className="h-5 w-5" />,
     accent: "text-emerald-300",
     border: "hover:border-emerald-300/50",
@@ -219,7 +221,12 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Carousel */}
-      <HeroCarousel />
+      <HeroBanner />
+
+      {/* Logos dos Parceiros (Destaque e Transição) */}
+      <div className="border-y border-border/20 bg-bg-element/25">
+        <PartnerMarquee />
+      </div>
 
       {/* Modalidades */}
       <AnimatedSection className="px-6 py-24">
@@ -236,14 +243,16 @@ export default function HomePage() {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {modalidades.map((modalidade, i) => (
               <AnimatedItem key={modalidade.name}>
-                <Link
+                <a
                   href={modalidade.href}
-                  className={`group relative flex min-h-44 overflow-hidden rounded-2xl border border-border bg-bg-element p-5 transition-all duration-300 hover:-translate-y-1 ${modalidade.border} hover:shadow-[0_0_32px_rgba(0,204,255,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn("group relative flex min-h-44 overflow-hidden rounded-2xl border border-border bg-bg-element p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_32px_rgba(0,204,255,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50", modalidade.border)}
                 >
-                  <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${modalidade.glow} via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-100`} />
+                  <div className={cn("pointer-events-none absolute inset-0 bg-gradient-to-br via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-100", modalidade.glow)} />
                   <div className="relative flex w-full flex-col">
                     <div className="flex items-start justify-between gap-4">
-                      <div className={`flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-black/35 ${modalidade.accent}`}>
+                      <div className={cn("flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-black/35", modalidade.accent)}>
                         {modalidade.icon}
                       </div>
                       <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">
@@ -251,14 +260,14 @@ export default function HomePage() {
                       </span>
                     </div>
                     <div className="mt-7">
-                      <p className={`text-xs font-semibold uppercase tracking-[0.22em] ${modalidade.accent}`}>{modalidade.label}</p>
+                      <p className={cn("text-xs font-semibold uppercase tracking-[0.22em]", modalidade.accent)}>{modalidade.label}</p>
                       <h3 className="mt-1 text-2xl font-bold tracking-tight text-text transition-colors group-hover:text-accent">
                         {modalidade.name}
                       </h3>
                       <p className="mt-2 text-sm leading-relaxed text-text-secondary">{modalidade.desc}</p>
                     </div>
                   </div>
-                </Link>
+                </a>
               </AnimatedItem>
             ))}
           </div>
@@ -298,7 +307,7 @@ export default function HomePage() {
           {conquistas.map((c, i) => (
             <AnimatedItem key={i}>
               <TiltCard className="group relative h-full overflow-hidden rounded-2xl border border-border bg-bg-element transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_0_36px_rgba(0,204,255,0.14)]">
-                <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${c.accent} via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100`} />
+                <div className={cn("pointer-events-none absolute inset-0 bg-gradient-to-br via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-100", c.accent)} />
 
                 <div className="relative aspect-[16/10] w-full overflow-hidden">
                   <Image
@@ -358,11 +367,11 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
           {novidades.map((n, i) => (
             <AnimatedItem key={i}>
-              <TiltCard className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-bg-element p-6 transition-all duration-300 hover:-translate-y-1 ${n.border} hover:shadow-[0_0_30px_rgba(0,204,255,0.12)]`}>
-                <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${n.glow} via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100`} />
+              <TiltCard className={cn("group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-bg-element p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(0,204,255,0.12)]", n.border)}>
+                <div className={cn("pointer-events-none absolute inset-0 bg-gradient-to-br via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100", n.glow)} />
                 <Link href={n.href} className="flex h-full flex-col rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50">
                   <div className="mb-3 flex items-center gap-3">
-                    <span className={`inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold ${n.accent}`}>
+                    <span className={cn("inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold", n.accent)}>
                       <Tag className="h-3 w-3" />
                       {n.tag}
                     </span>
@@ -370,7 +379,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="mb-2 text-lg font-bold leading-tight tracking-tight">{n.title}</h3>
                   <p className="mb-4 flex-grow text-sm leading-relaxed text-text-secondary">{n.desc}</p>
-                  <span className={`inline-flex items-center gap-1 text-sm font-semibold ${n.accent} transition-all group-hover:gap-2`}>
+                  <span className={cn("inline-flex items-center gap-1 text-sm font-semibold transition-all group-hover:gap-2", n.accent)}>
                     Saiba mais <ArrowRight className="h-4 w-4" />
                   </span>
                 </Link>
@@ -397,10 +406,10 @@ export default function HomePage() {
                 href={step.href}
                 className="group flex h-full flex-col rounded-2xl border border-border bg-bg-element p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,204,255,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
               >
-                <span className={`mb-5 h-1 w-14 rounded-full ${step.marker} transition-all duration-300 group-hover:w-24`} />
+                <span className={cn("mb-5 h-1 w-14 rounded-full transition-all duration-300 group-hover:w-24", step.marker)} />
                 <h3 className="text-xl font-bold tracking-tight">{step.title}</h3>
                 <p className="mt-2 flex-grow text-sm leading-relaxed text-text-secondary">{step.desc}</p>
-                <span className={`mt-6 inline-flex items-center gap-1 text-sm font-semibold ${step.accent} transition-all group-hover:gap-2`}>
+                <span className={cn("mt-6 inline-flex items-center gap-1 text-sm font-semibold transition-all group-hover:gap-2", step.accent)}>
                   {step.action} <ArrowRight className="h-4 w-4" />
                 </span>
               </Link>

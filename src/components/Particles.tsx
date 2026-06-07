@@ -22,6 +22,11 @@ export function Particles({ count = 60 }: { count?: number }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // Check prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     let animationId: number;
     let particles: Particle[] = [];
 
@@ -65,6 +70,23 @@ export function Particles({ count = 60 }: { count?: number }) {
       }
     }
 
+    /** Draw a single static frame (no movement) */
+    function drawStatic() {
+      if (!ctx || !canvas) return;
+      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+
+      for (const p of particles) {
+        // Draw connections
+        drawLines(p);
+
+        // Draw particle
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 204, 255, ${p.opacity})`;
+        ctx.fill();
+      }
+    }
+
     function animate() {
       if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
@@ -91,17 +113,30 @@ export function Particles({ count = 60 }: { count?: number }) {
       animationId = requestAnimationFrame(animate);
     }
 
-    resize();
-    createParticles();
-    animate();
-
-    window.addEventListener("resize", () => {
+    // Named handler so we can remove it on cleanup
+    function handleResize() {
       resize();
       createParticles();
-    });
+      if (prefersReducedMotion) {
+        drawStatic();
+      }
+    }
+
+    resize();
+    createParticles();
+
+    if (prefersReducedMotion) {
+      // Render a single static frame — no animation loop
+      drawStatic();
+    } else {
+      animate();
+    }
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
       cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", handleResize);
     };
   }, [count]);
 

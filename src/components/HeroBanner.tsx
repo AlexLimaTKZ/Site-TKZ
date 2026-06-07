@@ -5,7 +5,7 @@ import { Particles } from "@/components/Particles";
 
 export function HeroBanner() {
   return (
-    <section className="relative h-[calc(100svh-80px)] min-h-[540px] overflow-hidden bg-[#0a0e17] sm:min-h-[600px]">
+    <section className="relative w-full aspect-video sm:aspect-auto sm:h-[calc(100svh-80px)] sm:min-h-[600px] overflow-hidden bg-[#0a0e17]">
       {/* Particles background */}
       <Particles count={50} />
 
@@ -25,7 +25,7 @@ export function HeroBanner() {
       </div>
 
       {/* Bottom gradient fade to content */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-32 bg-gradient-to-t from-bg to-transparent" />
     </section>
   );
 }
